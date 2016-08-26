@@ -16,7 +16,7 @@
 ```javascript
 <body onload="prettyPrint()">
 ```
-*  在body后添加
+*  在body后的script标签中添加（为所有的pre标签添加prettify中的类名，也可以自己手动为指定标签添加类名）
 ```javascript
 $("pre").addClass("prettyprint linenums");
 prettyPrint();
