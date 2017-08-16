@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/prettify.js"></script>
+    <!--CSS文件夹中css已通过js动态加入，调用的是css88.com的静态css资源文件-->
+</head>
+<body>
+    <pre>
+(function(root,fn){
+    if(typeof exports ==='object'&&typeof module === 'object'){
+        module.exports = fn();
+
+    }else if(typeof define === 'function' && define.amd){
+        define([],fn);
+    }else if(typeof exports === 'object'){
+        exports['packname'] = fn();
+    }else {
+        root['packname'] = fn();
+    }
+})(this,function(){
+    return (function(modules){
+        var installed = {};
+        function _webpack_require_(moduleId){
+            if(installed[moduleId]){
+                return installed[moduleId];
+            }
+            var module = installed[moduleId] = {
+                exports:{},
+                id:moduleId,
+                loaded:false
+            }
+            modules[moduleId].call(module.exports,module,module.exports,_webpack_require_)
+            module.loaded = true;
+            return module.exports;
+        }
+        _webpack_require_.m = modules;
+        _webpack_require_.c = installed;
+        _webpack_require_.p = '';
+        return _webpack_require_(0);
+    })([
+        function(module,exports,_webpack_require_){
+            // console.log('hi');
+            _webpack_require_(1);
+        },
+        function(){
+            console.log(1);
+        }
+    ]);
+})
+    </pre>
+</body>
+</html>
